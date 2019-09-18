@@ -49,4 +49,4 @@ You can read full documentation of this project at http://tileserver.readthedocs
 
 ## Cloud Foundry notes
 
-cf push -b https://github.com/cloudfoundry/nodejs-buildpack.git#v1.6.48
+cf push -b https://github.com/cloudfoundry/nodejs-buildpack.git#v1.6.48 -s cflinuxfs3
