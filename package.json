@@ -16,7 +16,7 @@
     "node": "6.17.0"
   },
   "scripts": {
-    "test": "mocha test/**.js --timeout 10000"
+    "test": "mocha test/**.js --timeout 10000",
     "start": "node src/main.js"
   },
   "dependencies": {
