@@ -46,3 +46,7 @@ On laptop you can use [Docker Kitematic](https://kitematic.com/) and search "til
 ## Documentation
 
 You can read full documentation of this project at http://tileserver.readthedocs.io/.
+
+## Cloud Foundry notes
+
+cf push -b https://github.com/cloudfoundry/nodejs-buildpack.git#v1.6.48
