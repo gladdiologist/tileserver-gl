@@ -5,5 +5,3 @@ applications:
     - apt_buildpack
     - https://github.com/cloudfoundry/nodejs-buildpack.git#v1.6.48
   stack: cflinuxfs3
-  services:
-  - config
