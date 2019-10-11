@@ -48,5 +48,6 @@ On laptop you can use [Docker Kitematic](https://kitematic.com/) and search "til
 You can read full documentation of this project at http://tileserver.readthedocs.io/.
 
 ## Cloud Foundry notes
+Requires [apt-buildpack](https://github.com/cloudfoundry/apt-buildpack)
 
-cf push -b https://github.com/cloudfoundry/nodejs-buildpack.git#v1.6.48 -s cflinuxfs3
+cf push tileserver -b apt_buildpack -b https://github.com/cloudfoundry/nodejs-buildpack.git#v1.6.48 -s cflinuxfs3

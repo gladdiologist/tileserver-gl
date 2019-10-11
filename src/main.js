@@ -4,13 +4,24 @@
 
 var fs = require('fs'),
     path = require('path'),
-    request = require('request');
+    request = require('request'),
+    cfenv = require('cfenv');
 
 var mbtiles = require('@mapbox/mbtiles');
 
 var packageJson = require('../package');
 
 var args = process.argv;
+
+var appEnv = cfenv.getAppEnv();
+var appServices = appEnv.getServices();
+
+console.log(appServices);
+console.log(process.cwd());
+if (appServices.config) {
+  process.chdir(appServices.config.volume_mounts[0].container_dir);
+}
+console.log(process.cwd());
 if (args.length >= 3 && args[2][0] != '-') {
   args.splice(2, 0, '--mbtiles');
 }
@@ -30,12 +41,13 @@ var opts = require('commander')
   )
   .option(
     '-b, --bind <address>',
-    'Bind address'
+    'Bind address',
+    appEnv.bind
   )
   .option(
     '-p, --port <port>',
     'Port [8080]',
-    8080,
+    appEnv.port || 3000,
     parseInt
   )
   .option(
@@ -53,10 +65,6 @@ var opts = require('commander')
   .option(
     '-s, --silent',
     'Less verbose output'
-  )
-  .option(
-    '-l|--log_file <file>',
-    'output log file (defaults to standard out)'
   )
   .option(
     '-f|--log_format <format>',
@@ -83,7 +91,6 @@ var startServer = function(configPath, config) {
     cors: opts.cors,
     verbose: opts.verbose,
     silent: opts.silent,
-    logFile: opts.log_file,
     logFormat: opts.log_format,
     publicUrl: publicUrl
   });

@@ -1,0 +1,13 @@
+---
+cleancache: true
+keys:
+- https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x6b827c12c2d425e227edca75089ebe08314df160
+repos:
+- deb http://ppa.launchpad.net/ubuntugis/ppa/ubuntu xenial main
+packages:
+- unzip
+- curl
+- gdal-bin
+- jq
+- libcairo2
+- libgles2-mesa-dev
