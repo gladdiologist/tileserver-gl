@@ -17,3 +17,4 @@ then
   bin/tile-join -o $DATA/states-countries.mbtiles countries-z3.mbtiles states-Z4.mbtiles
 else
   echo "Should be run when a volume service is bounded"
+fi
