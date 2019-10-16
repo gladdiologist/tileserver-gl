@@ -16,11 +16,10 @@ var args = process.argv;
 var appEnv = cfenv.getAppEnv();
 var appService = appEnv.getServices("mbtiles");
 
-console.log(process.cwd());
-if (appService) {
+if (appService.mbtiles) {
   process.chdir(appService.mbtiles.volume_mounts[0].container_dir);
 }
-console.log(process.cwd());
+
 if (args.length >= 3 && args[2][0] != '-') {
   args.splice(2, 0, '--mbtiles');
 }
