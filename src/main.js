@@ -14,12 +14,11 @@ var packageJson = require('../package');
 var args = process.argv;
 
 var appEnv = cfenv.getAppEnv();
-var appServices = appEnv.getServices();
+var appService = appEnv.getServices("mbtiles");
 
-console.log(appServices);
 console.log(process.cwd());
-if (appServices.config) {
-  process.chdir(appServices.config.volume_mounts[0].container_dir);
+if (appService) {
+  process.chdir(appService.mbtiles.volume_mounts[0].container_dir);
 }
 console.log(process.cwd());
 if (args.length >= 3 && args[2][0] != '-') {
